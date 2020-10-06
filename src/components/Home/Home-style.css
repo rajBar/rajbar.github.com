@@ -16,6 +16,16 @@
     margin: 2px auto;
 }
 
+.link-button:hover {
+    cursor: pointer;
+    border: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 64px;
+    margin: 2px auto;
+    background: darkgray;
+}
+
 .link-button-selected {
     cursor: pointer;
     border: 1px;
