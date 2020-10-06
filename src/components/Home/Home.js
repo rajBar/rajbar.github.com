@@ -50,7 +50,6 @@ class Home extends Component {
                             springConfig={presets.wobbly}
                             inline
                             overflow
-                            delay={90}
                             style={{ color: "black", fontWeight: "bold" }}
                         />
                         <TextTransition
@@ -65,7 +64,7 @@ class Home extends Component {
                             springConfig={presets.wobbly}
                             inline
                             overflow
-                            delay={180}
+                            delay={100}
                             style={{ color: other }}
                         />
                         <TextTransition
@@ -80,7 +79,7 @@ class Home extends Component {
                             springConfig={presets.wobbly}
                             inline
                             overflow
-                            delay={270}
+                            delay={200}
                             style={{ color: other }}
                         />
                     </section>
