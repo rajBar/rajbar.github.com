@@ -43,7 +43,7 @@ class Home extends Component {
         return (
             <div style={{ marginTop: "50px" }}>
                 <a href={link} target="_blank" style={{ textDecoration: "none", color: "black"}}>
-                    <section style={{ fontSize: 90 }}>
+                    <section style={{ fontSize: "7vw" }}>
                         <TextTransition
                             text={prefix}
                             springConfig={presets.wobbly}
