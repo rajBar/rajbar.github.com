@@ -5,7 +5,7 @@ import GitHub from '../../icons/GitHub.png';
 import LinkedIn from '../../icons/LinkedIn.png';
 import Instagram from '../../icons/Instagram.png';
 import Strava from '../../icons/Strava.png';
-import Email from '../../icons/Email.png';
+// import Email from '../../icons/Email.png';
 
 
 class Home extends Component {
@@ -19,6 +19,13 @@ class Home extends Component {
             middle: ".",
             link: "http://raj.Bar",
         }
+    }
+
+    notifyPhone = () => {
+        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/cB7ajTVXp4vXHv3NoI_BB_'
+        fetch(url, {
+            method: 'post'
+        })
     }
 
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
@@ -39,6 +46,8 @@ class Home extends Component {
         const middle = this.state.middle;
         const r = this.state.r;
         const link = this.state.link;
+
+        this.notifyPhone();
 
         return (
             <div style={{ marginTop: "50px" }}>
