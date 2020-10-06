@@ -9,22 +9,20 @@
 
 .link-button {
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
-    width: fit-content;
+    width: 64px;
+    margin: 2px auto;
 }
 
 .link-button-selected {
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
-    width: fit-content;
-    background: #282c34;
+    width: 64px;
+    background: slategrey;
     color: white;
+    margin: 2px auto;
 }

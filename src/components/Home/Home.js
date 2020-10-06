@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import './Home-style.css';
-// import TextTransition from "react-text-transition/src/components/TextTransition";
 import TextTransition, { presets } from "react-text-transition";
+import GitHub from '../../icons/GitHub.png';
+import LinkedIn from '../../icons/LinkedIn.png';
+import Instagram from '../../icons/Instagram.png';
+import Strava from '../../icons/Strava.png';
+import Email from '../../icons/Email.png';
+
 
 class Home extends Component {
     constructor(props) {
@@ -85,13 +90,13 @@ class Home extends Component {
                         />
                     </section>
                 </a>
-                <div style={{ marginTop: "80px" }}>
-                    <p className={this.state.selected === "github" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")}>GitHub</p>
-                    <p className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")}>LinkedIn</p>
-                    <p className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")}>Instagram</p>
-                    <p className={this.state.selected === "strava" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")}>Strava Account</p>
+                <div style={{ marginTop: "40px" }}>
+                    <img className={this.state.selected === "github" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub} /><br />
+                    <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")} src={LinkedIn} /><br />
+                    <img className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")} src={Instagram} /><br />
+                    <img className={this.state.selected === "strava" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")} src={Strava} /><br />
                     <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", "", ".github.io/strava-stats", "https://rajbar.github.io/strava-stats/")}>Strava Stats</p>
-                    <p className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "", "r", "", "iah@gmail.com‎‎‎", "mailto:me@rajbariah@gmail.com")}>E-mail</p>
+                    <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "", "r", "", "iah@gmail.com‎‎‎", "mailto:me@rajbariah@gmail.com")} src={Email} /><br />
                     <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", "", ".github.io/movie-list", "https://rajbar.github.io/movie-list/")}>Movie List</p>
                     <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("blogs", "", "r", "", ".github.io/blogs", "https://rajbar.github.io/blogs/")}>Blog</p>
                 </div>
