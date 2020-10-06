@@ -18,14 +18,21 @@ class Home extends Component {
             suffix: "",
             middle: ".",
             link: "http://raj.Bar",
+            alerted: false,
         }
     }
 
     notifyPhone = () => {
-        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/cB7ajTVXp4vXHv3NoI_BB_'
-        fetch(url, {
-            method: 'post'
-        })
+        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/cB7ajTVXp4vXHv3NoI_BB_';
+        if(!this.state.alerted) {
+            fetch(url, {
+                method: 'post'
+            })
+            this.setState({
+                ...this.state,
+                alerted: true,
+            })
+        }
     }
 
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
