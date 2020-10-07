@@ -112,8 +112,8 @@ class Home extends Component {
                     <img className={this.state.selected === "strava" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")} src={Strava} /><br />
                     {/*<img className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "", "r", "", "iah@gmail.com‎‎‎", "mailto:me@rajbariah@gmail.com")} src={Email} /><br />*/}
                     <img className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")} src={Instagram} /><br />
-                    <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", "", ".github.io/strava-stats", "https://rajbar.github.io/strava-stats/")}>Strava Stats</p>
                     <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", "", ".github.io/movie-list", "https://rajbar.github.io/movie-list/")}>Movie List</p>
+                    <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", "", ".github.io/strava-stats", "https://rajbar.github.io/strava-stats/")}>Strava Stats</p>
                     <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("blogs", "", "r", "", ".github.io/blogs", "https://rajbar.github.io/blogs/")}>Blog</p>
                 </div>
             </div>
