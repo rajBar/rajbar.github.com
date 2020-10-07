@@ -23,7 +23,7 @@ class Home extends Component {
     }
 
     notifyPhone = () => {
-        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/cB7ajTVXp4vXHv3NoI_BB_';
+        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-';
         if(!this.state.alerted) {
             fetch(url, {
                 method: 'post'
