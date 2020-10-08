@@ -7,6 +7,20 @@
     font-weight: bold;
 }
 
+.table {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-left {
+    padding-right: 20px;
+}
+
+.table-right {
+    padding-left: 20px;
+}
+
 .link-button {
     cursor: pointer;
     border: 1px;
