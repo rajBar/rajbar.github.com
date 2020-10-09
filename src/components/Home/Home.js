@@ -12,7 +12,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: "",
+            selected: "raj.Bar",
             r: "r",
             prefix: "",
             suffix: "",
@@ -58,7 +58,7 @@ class Home extends Component {
 
         return (
             <div style={{ marginTop: "50px" }}>
-                <a href={link} target="_blank" style={{ textDecoration: "none", color: "black" }}>
+                <a href={link} target="_blank" className="header-text">
                     <section style={{ fontSize: "7vw" }}>
                         <TextTransition
                             text={prefix}
@@ -106,10 +106,27 @@ class Home extends Component {
                         />
                     </section>
                 </a>
+                <div
+                    className={this.state.selected === "raj.Bar" ? "raj-bar-large" : "raj-bar-small"}
+                    onClick={() => this.changeText("raj.Bar", "", "r",".", "", "http://raj.Bar")} src={GitHub}
+                >
+                    {`${this.state.selected === "raj.Bar" ? "Home page" : "raj.Bar"}`.split("").map((n, i) => (
+                        <TextTransition
+                            key={i}
+                            text={n}
+                            delay={250 + (i * 150)}
+                            overflow
+                            inline
+                        />
+                    ))}
+                </div>
                 <table className="table">
                     <tr>
                         <td className="table-left">
-                            <img className={this.state.selected === "github" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub} /><br />
+                            <img
+                                className={this.state.selected === "github" ? "link-button-selected" : "link-button"}
+                                onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub}
+                            /><br />
                         </td>
                         <td className="table-right">
                             <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")} src={LinkedIn} /><br />

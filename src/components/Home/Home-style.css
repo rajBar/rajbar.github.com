@@ -1,3 +1,8 @@
+.header-text {
+    text-decoration: none;
+    color: black;
+}
+
 .other-text {
     color: #484848
 }
@@ -7,8 +12,29 @@
     font-weight: bold;
 }
 
+.raj-bar-small {
+    cursor: pointer;
+    margin-top: 40px;
+    margin-bottom: 0;
+    font-size: 15px;
+    transition: all .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.raj-bar-large {
+    margin-top: 40px;
+    margin-bottom: 0;
+    font-size: 25px;
+    transition: all .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .table {
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
