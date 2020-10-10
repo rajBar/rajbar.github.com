@@ -23,17 +23,16 @@ class Home extends Component {
     }
 
     notifyPhone = () => {
-        const url = "https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-";
-        // const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + "testing";
-        // if(!this.state.alerted) {
-        //     fetch(url, {
-        //         method: 'post'
-        //     })
-        //     this.setState({
-        //         ...this.state,
-        //         alerted: true,
-        //     })
-        // }
+        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + navigator.platform;
+        if(!this.state.alerted) {
+            fetch(url, {
+                method: 'post'
+            })
+            this.setState({
+                ...this.state,
+                alerted: true,
+            })
+        }
     }
 
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
@@ -55,7 +54,7 @@ class Home extends Component {
         const r = this.state.r;
         const link = this.state.link;
 
-        this.notifyPhone();
+        // this.notifyPhone();
 
         return (
             <div style={{ marginTop: "50px" }}>
