@@ -22,8 +22,10 @@ class Home extends Component {
         }
     }
 
-    notifyPhone = () => {
-        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + navigator.platform;
+    async notifyPhone() {
+        const publicIp = require('public-ip');
+        const ipv4 = await publicIp.v4();
+        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + navigator.platform + "&value2=" + ipv4;
         if(!this.state.alerted) {
             fetch(url, {
                 method: 'post'
