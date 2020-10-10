@@ -148,10 +148,10 @@ class Home extends Component {
                         </tr>
                         <tr>
                             <td className="table-left">
-                                <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", ".", "/movie-list", "https://rajbar.github.io/movie-list/")}>Movie List</p>
+                                <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>Movie List</p>
                             </td>
                             <td className="table-right">
-                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava-stats", "https://rajbar.github.io/strava-stats/")}>Strava Stats</p>
+                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>Strava Stats</p>
                             </td>
                         </tr>
                         <tr>
