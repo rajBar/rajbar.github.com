@@ -29,15 +29,20 @@ class Home extends Component {
         if(!this.state.alerted) {
             fetch(url, {
                 method: 'post'
-            })
+            });
             this.setState({
                 ...this.state,
                 alerted: true,
-            })
+            });
         }
     }
 
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
+
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && buttonSelected === "linkedin" ) {
+            link = "linkedin://profile/gulrajbariah";
+        }
+
         this.setState({
             ...this.state,
             selected: buttonSelected,
@@ -47,7 +52,7 @@ class Home extends Component {
             middle: middle,
             link: link,
         });
-    }
+    };
 
     render() {
         const prefix = this.state.prefix;
