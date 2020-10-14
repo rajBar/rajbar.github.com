@@ -16,8 +16,7 @@
     cursor: pointer;
     margin-top: 40px;
     margin-bottom: 0;
-    font-size: 15px;
-    transition: all .5s ease;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,8 +25,7 @@
 .raj-bar-large {
     margin-top: 40px;
     margin-bottom: 0;
-    font-size: 25px;
-    transition: all .5s ease;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

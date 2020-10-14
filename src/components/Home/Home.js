@@ -117,7 +117,17 @@ class Home extends Component {
                     className={this.state.selected === "raj.Bar" ? "raj-bar-large" : "raj-bar-small"}
                     onClick={() => this.changeText("raj.Bar", "", "r",".", "", "http://raj.Bar")} src={GitHub}
                 >
-                    {`${this.state.selected === "raj.Bar" ? "Home page" : "raj.Bar"}`.split("").map((n, i) => (
+                    {`${this.state.selected === "raj.Bar" ? "↓ Select below ↓" : "↑ Link above ↑"}`.split("").map((n, i) => (
+                        n == " " ?
+                        <TextTransition
+                            key={i}
+                            text="_"
+                            delay={250 + (i * 150)}
+                            overflow
+                            inline
+                            style={{ visibility: "hidden" }}
+                        />
+                        :
                         <TextTransition
                             key={i}
                             text={n}
