@@ -4,7 +4,7 @@
 }
 
 .other-text {
-    color: #484848
+    color: #484848;
 }
 
 .main-text {
@@ -14,25 +14,25 @@
 
 .raj-bar-small {
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .raj-bar-large {
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .table {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }

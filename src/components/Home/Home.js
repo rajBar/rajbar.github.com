@@ -17,7 +17,7 @@ class Home extends Component {
             prefix: "",
             suffix: "",
             middle: ".",
-            link: "http://raj.Bar",
+            link: "",
             alerted: false,
         }
     }
@@ -115,27 +115,35 @@ class Home extends Component {
                 </a>
                 <div
                     className={this.state.selected === "raj.Bar" ? "raj-bar-large" : "raj-bar-small"}
-                    onClick={() => this.changeText("raj.Bar", "", "r",".", "", "http://raj.Bar")} src={GitHub}
+                    onClick={() => this.changeText("raj.Bar", "", "r",".", "", "")}
                 >
-                    {`${this.state.selected === "raj.Bar" ? "↓ Select below ↓" : "↑ Link above ↑"}`.split("").map((n, i) => (
-                        n == " " ?
-                        <TextTransition
-                            key={i}
-                            text="_"
-                            delay={250 + (i * 150)}
-                            overflow
-                            inline
-                            style={{ visibility: "hidden" }}
-                        />
-                        :
-                        <TextTransition
-                            key={i}
-                            text={n}
-                            delay={250 + (i * 150)}
-                            overflow
-                            inline
-                        />
-                    ))}
+                    {/*{`${this.state.selected === "raj.Bar" ? "↓ Select below ↓" : "↑ Link above ↑"}`.split("").map((n, i) => (*/}
+                    {/*    n == " " ?*/}
+                    {/*    <TextTransition*/}
+                    {/*        key={i}*/}
+                    {/*        text="_"*/}
+                    {/*        delay={250 + (i * 150)}*/}
+                    {/*        overflow*/}
+                    {/*        inline*/}
+                    {/*        style={{ visibility: "hidden" }}*/}
+                    {/*    />*/}
+                    {/*    :*/}
+                    {/*    <TextTransition*/}
+                    {/*        key={i}*/}
+                    {/*        text={n}*/}
+                    {/*        delay={250 + (i * 150)}*/}
+                    {/*        overflow*/}
+                    {/*        inline*/}
+                    {/*    />*/}
+                    {/*))}*/}
+                    <TextTransition
+                        text={this.state.selected === "raj.Bar" ? "↓ Select below ↓" : "↑ Link above ↑"}
+                        springConfig={presets.wobbly}
+                        inline
+                        overflow
+                        delay={200}
+                        className="other-text"
+                    />
                 </div>
                 <table className="table">
                     <tbody>
@@ -143,8 +151,7 @@ class Home extends Component {
                             <td className="table-left">
                                 <img
                                     className={this.state.selected === "github" ? "link-button-selected" : "link-button"}
-                                    onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub}
-                                /><br />
+                                    onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub} /><br />
                             </td>
                             <td className="table-right">
                                 <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")} src={LinkedIn} /><br />
