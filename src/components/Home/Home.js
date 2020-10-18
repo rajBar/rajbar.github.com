@@ -39,7 +39,7 @@ class Home extends Component {
 
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
 
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && buttonSelected === "linkedin" ) {
+        if( /iPhone|iPad|iPod/i.test(navigator.userAgent) && buttonSelected === "linkedin" ) {
             link = "linkedin://profile/gulrajbariah";
         }
 
