@@ -170,15 +170,15 @@ class Home extends Component {
                                 <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>Movie List</p>
                             </td>
                             <td className="table-right">
-                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>Strava Stats</p>
+                                <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")} src={Email} /><br />
                             </td>
-                            {/*<td className="table-right">*/}
-                            {/*    <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")} src={Email} /><br />*/}
-                            {/*</td>*/}
                         </tr>
                         <tr>
                             <td className="table-left">
                                 <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>Blog</p>
+                            </td>
+                            <td className="table-right">
+                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>Strava Stats</p>
                             </td>
                         </tr>
                     </tbody>
