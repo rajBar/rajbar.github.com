@@ -151,34 +151,57 @@ class Home extends Component {
                             <td className="table-left">
                                 <img
                                     className={this.state.selected === "github" ? "link-button-selected" : "link-button"}
-                                    onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")} src={GitHub} /><br />
+                                    onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")}
+                                    src={GitHub}
+                                /><br />
                             </td>
                             <td className="table-right">
-                                <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")} src={LinkedIn} /><br />
+                                <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"}
+                                     onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")}
+                                     src={LinkedIn}
+                                /><br />
                             </td>
                         </tr>
                         <tr>
                             <td className="table-left">
-                                <img className={this.state.selected === "strava" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")} src={Strava} /><br />
+                                <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"}
+                                     onClick={() => this.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")}
+                                     src={Email}
+                                /><br />
                             </td>
                             <td className="table-right">
-                                <img className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")} src={Instagram} /><br />
+                                <img className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"}
+                                     onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")}
+                                     src={Instagram}
+                                /><br />
                             </td>
                         </tr>
                         <tr>
                             <td className="table-left">
-                                <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>Movie List</p>
+                                <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"}
+                                   onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                                    Movie List
+                                </p>
                             </td>
                             <td className="table-right">
-                                <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")} src={Email} /><br />
+                                <img className={this.state.selected === "strava" ? "link-button-selected" : "link-button"}
+                                     onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")}
+                                     src={Strava}
+                                /><br />
                             </td>
                         </tr>
                         <tr>
                             <td className="table-left">
-                                <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>Blog</p>
+                                <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"}
+                                   onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>
+                                    Blog
+                                </p>
                             </td>
                             <td className="table-right">
-                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"} onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>Strava Stats</p>
+                                <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"}
+                                   onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>
+                                    Strava Stats
+                                </p>
                             </td>
                         </tr>
                     </tbody>
