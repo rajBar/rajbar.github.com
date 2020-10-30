@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.cc283c9b.chunk.css",
+    "main.css": "/static/css/main.551793eb.chunk.css",
     "main.js": "/static/js/main.7c155701.chunk.js",
     "main.js.map": "/static/js/main.7c155701.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.19a3ffa3.js",
@@ -8,9 +8,9 @@
     "static/js/2.73d47c22.chunk.js": "/static/js/2.73d47c22.chunk.js",
     "static/js/2.73d47c22.chunk.js.map": "/static/js/2.73d47c22.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e90dfa3bc690200b7acd01b8eb0c3a84.js": "/precache-manifest.e90dfa3bc690200b7acd01b8eb0c3a84.js",
+    "precache-manifest.1050173ca0c4c7144eba8b9d45e0609f.js": "/precache-manifest.1050173ca0c4c7144eba8b9d45e0609f.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.cc283c9b.chunk.css.map": "/static/css/main.cc283c9b.chunk.css.map",
+    "static/css/main.551793eb.chunk.css.map": "/static/css/main.551793eb.chunk.css.map",
     "static/js/2.73d47c22.chunk.js.LICENSE.txt": "/static/js/2.73d47c22.chunk.js.LICENSE.txt",
     "static/media/Instagram.png": "/static/media/Instagram.c5ddecc6.png",
     "static/media/Strava.png": "/static/media/Strava.e7d19b9b.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.19a3ffa3.js",
     "static/js/2.73d47c22.chunk.js",
-    "static/css/main.cc283c9b.chunk.css",
+    "static/css/main.551793eb.chunk.css",
     "static/js/main.7c155701.chunk.js"
   ]
 }
