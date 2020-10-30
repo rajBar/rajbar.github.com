@@ -11,7 +11,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "react-text-transition": "^1.1.2"
+    "react-text-transition": "^1.1.2",
+    "react-tooltip": "^4.2.10"
   },
   "scripts": {
     "predeploy": "npm run build",

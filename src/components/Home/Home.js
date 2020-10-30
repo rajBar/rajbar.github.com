@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactToolTip from 'react-tooltip';
 import './Home-style.css';
 import TextTransition, { presets } from "react-text-transition";
 import GitHub from '../../icons/GitHub.png';
@@ -145,6 +146,8 @@ class Home extends Component {
                         className="other-text"
                     />
                 </div>
+                <ReactToolTip effect={"solid"} place={"left"} id={"ToolTipLeft"} offset="{'right': 8}" className="my-tooltip" />
+                <ReactToolTip effect={"solid"} place={"right"} id={"ToolTipRight"} offset="{'left': 6}" className="my-tooltip" />
                 <table className="table">
                     <tbody>
                         <tr>
@@ -153,12 +156,16 @@ class Home extends Component {
                                     className={this.state.selected === "github" ? "link-button-selected" : "link-button"}
                                     onClick={() => this.changeText("github", "", "r","", "", "https://github.com/rajBar/")}
                                     src={GitHub}
+                                    data-tip="GitHub"
+                                    data-for="ToolTipLeft"
                                 /><br />
                             </td>
                             <td className="table-right">
                                 <img className={this.state.selected === "linkedin" ? "link-button-selected" : "link-button"}
                                      onClick={() => this.changeText("linkedin", "Gulraj (", "R", ")‎‎‎ ‎", "iah", "https://uk.linkedin.com/in/gulrajbariah")}
                                      src={LinkedIn}
+                                     data-tip="LinkedIn"
+                                     data-for="ToolTipRight"
                                 /><br />
                             </td>
                         </tr>
@@ -167,19 +174,25 @@ class Home extends Component {
                                 <img className={this.state.selected === "email" ? "link-button-selected" : "link-button"}
                                      onClick={() => this.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")}
                                      src={Email}
+                                     data-tip="E-mail"
+                                     data-for="ToolTipLeft"
                                 /><br />
                             </td>
                             <td className="table-right">
                                 <img className={this.state.selected === "instagram" ? "link-button-selected" : "link-button"}
                                      onClick={() => this.changeText("instagram", "@", "R", "", "iah", "https://www.instagram.com/rajbariah/?hl=en")}
                                      src={Instagram}
+                                     data-tip="Instagram"
+                                     data-for="ToolTipRight"
                                 /><br />
                             </td>
                         </tr>
                         <tr>
                             <td className="table-left">
                                 <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                                   onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}
+                                   data-tip="Movie List"
+                                   data-for="ToolTipLeft">
                                     Movie List
                                 </p>
                             </td>
@@ -187,19 +200,25 @@ class Home extends Component {
                                 <img className={this.state.selected === "strava" ? "link-button-selected" : "link-button"}
                                      onClick={() => this.changeText("strava", "", "R", "‎‎‎ ‎", "iah", "https://www.strava.com/athletes/59236473")}
                                      src={Strava}
+                                     data-tip="Strava"
+                                     data-for="ToolTipRight"
                                 /><br />
                             </td>
                         </tr>
                         <tr>
                             <td className="table-left">
                                 <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>
+                                   onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}
+                                    data-tip="Blogs"
+                                    data-for="ToolTipLeft">
                                     Blog
                                 </p>
                             </td>
                             <td className="table-right">
                                 <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>
+                                   onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}
+                                    data-tip="Strava Stats"
+                                    data-for="ToolTipRight">
                                     Strava Stats
                                 </p>
                             </td>
