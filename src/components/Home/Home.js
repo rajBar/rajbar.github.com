@@ -190,9 +190,7 @@ class Home extends Component {
                         <tr>
                             <td className="table-left">
                                 <p className={this.state.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}
-                                   data-tip="Movie List"
-                                   data-for="ToolTipLeft">
+                                   onClick={() => this.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
                                     Movie List
                                 </p>
                             </td>
@@ -208,17 +206,13 @@ class Home extends Component {
                         <tr>
                             <td className="table-left">
                                 <p className={this.state.selected === "blogs" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}
-                                    data-tip="Blogs"
-                                    data-for="ToolTipLeft">
+                                   onClick={() => this.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>
                                     Blog
                                 </p>
                             </td>
                             <td className="table-right">
                                 <p className={this.state.selected === "strava-stats" ? "link-button-selected" : "link-button"}
-                                   onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}
-                                    data-tip="Strava Stats"
-                                    data-for="ToolTipRight">
+                                   onClick={() => this.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>
                                     Strava Stats
                                 </p>
                             </td>
