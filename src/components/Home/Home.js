@@ -26,7 +26,8 @@ class Home extends Component {
     async notifyPhone() {
         const publicIp = require('public-ip');
         const ipv4 = await publicIp.v4();
-        const url = 'https://maker.ifttt.com/trigger/Notifies-phone/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + navigator.platform + "&value2=" + ipv4;
+
+        const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform;
         if(!this.state.alerted) {
             fetch(url, {
                 method: 'post'
