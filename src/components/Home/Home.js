@@ -27,7 +27,7 @@ class Home extends Component {
         const publicIp = require('public-ip');
         const ipv4 = await publicIp.v4();
 
-        const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform;
+        const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform + "&site=raj.Bar";
         if(!this.state.alerted) {
             fetch(url, {
                 method: 'post'
