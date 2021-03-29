@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Home-style.css';
 import TextTransition, {presets} from "react-text-transition";
-import {BrowserView, MobileView} from "react-device-detect";
+import {BrowserView, MobileView, isMobile} from "react-device-detect";
 import BrowserTable from "../BrowserTable/BrowserTable";
 import MobileTable from "../MobileTable/MobileTable";
 
@@ -17,6 +17,7 @@ class Home extends Component {
             middle: ".",
             link: "",
             alerted: false,
+            numberOfSelections: 0,
         }
     }
 
@@ -36,10 +37,23 @@ class Home extends Component {
         }
     }
 
+    removeAlert() {
+        this.setState({
+            ...this.state,
+            numberOfSelections: 6,
+        });
+    }
+
     changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
+        let { numberOfSelections } = this.state;
+        numberOfSelections+=1;
 
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent) && buttonSelected === "linkedin") {
             link = "linkedin://profile/gulrajbariah";
+        }
+
+        if (numberOfSelections === 4 && isMobile) {
+            alert("After the icon is selected, select the link above");
         }
 
         this.setState({
@@ -50,6 +64,7 @@ class Home extends Component {
             suffix: suffix,
             middle: middle,
             link: link,
+            numberOfSelections,
         });
     };
 
@@ -64,8 +79,8 @@ class Home extends Component {
 
         return (
             <div style={{marginTop: "50px"}}>
-                <a href={link} target="_blank" className="header-text">
-                    <section style={{fontSize: "7vw"}}>
+                <a onClick={() => this.removeAlert()} href={link} target="_blank" className="header-text">
+                    <section className={isMobile ? "raj-bar-mobile" : "raj-bar"}>
                         <TextTransition
                             text={prefix}
                             springConfig={presets.wobbly}
@@ -114,7 +129,7 @@ class Home extends Component {
                 </a>
                 <MobileView>
                     <div
-                        className={this.state.selected === "raj.Bar" ? "raj-bar-large" : "raj-bar-small"}
+                        className={this.state.selected === "raj.Bar" ? "info-text" : "info-text-select"}
                         onClick={() => this.changeText("raj.Bar", "", "r", ".", "", "")}
                     >
                         <TextTransition
@@ -128,10 +143,10 @@ class Home extends Component {
                     </div>
                 </MobileView>
                 <BrowserView>
-                    <BrowserTable changeText={this.changeText} selected={this.state.selected}/>
+                    <BrowserTable changeText={this.changeText} selected={this.state.selected} />
                 </BrowserView>
                 <MobileView>
-                    <MobileTable changeText={this.changeText} selected={this.state.selected}/>
+                    <MobileTable changeText={this.changeText} selected={this.state.selected} />
                 </MobileView>
             </div>
         )

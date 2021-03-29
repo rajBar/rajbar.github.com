@@ -16,6 +16,8 @@ class BrowserTable extends Component {
     render() {
         return (
             <div>
+                <br />
+                <br />
                 <ReactToolTip effect={"solid"} place={"left"} id={"ToolTipLeft"} offset="{'right': 8}"
                               className="my-tooltip"/>
                 <ReactToolTip effect={"solid"} place={"right"} id={"ToolTipRight"} offset="{'left': 6}"
