@@ -26,14 +26,15 @@ class BrowserTable extends Component {
                     <tbody>
                     <tr>
                         <td className="table-left">
+                            <a href="https://github.com/rajBar/" target="_blank" className="header-text">
                                 <img
                                     className={this.props.selected === "github" ? "link-button-selected" : "link-button"}
                                     onMouseEnter={() => this.props.changeText("github", "", "r", "", "", "https://github.com/rajBar/")}
-                                    onClick={() => this.props.changeText("github", "", "r", "", "", "https://github.com/rajBar/")}
                                     src={GitHub}
                                     data-tip="GitHub"
                                     data-for="ToolTipLeft"
                                 /><br/>
+                            </a>
                         </td>
                         <td className="table-right">
                             <a href="https://uk.linkedin.com/in/gulrajbariah" target="_blank" className="header-text">
@@ -49,7 +50,7 @@ class BrowserTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <a href="mailto:me@raj.bar" target="_blank" className="header-text">
+                            <a href="mailto:me@raj.bar" className="header-text">
                                 <img
                                     className={this.props.selected === "email" ? "link-button-selected" : "link-button"}
                                     onMouseEnter={() => this.props.changeText("email", "me@", "r", ".", "", "mailto:me@raj.bar")}
