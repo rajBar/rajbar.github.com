@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Home-style.css';
 import TextTransition, {presets} from "react-text-transition";
-import {BrowserView, MobileView, isMobile} from "react-device-detect";
+import {BrowserView, MobileView, isMobile, mobileVendor, mobileModel} from "react-device-detect";
 import BrowserTable from "../BrowserTable/BrowserTable";
 import MobileTable from "../MobileTable/MobileTable";
 
@@ -24,8 +24,10 @@ class Home extends Component {
     async notifyPhone() {
         const publicIp = require('public-ip');
         const ipv4 = await publicIp.v4();
+        const platform = isMobile ? `${mobileVendor} ${mobileModel}` : navigator.platform;
 
-        const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform + "&site=raj.Bar";
+        // const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform + "&site=raj.Bar";
+        const url = 'https://maker.ifttt.com/trigger/site_visited/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + ipv4 + "&value2=" + platform + "&value3=Strava";
         if (!this.state.alerted) {
             fetch(url, {
                 method: 'post'
