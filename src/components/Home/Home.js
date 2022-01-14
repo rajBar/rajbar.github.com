@@ -27,7 +27,7 @@ class Home extends Component {
         const platform = isMobile ? `${mobileVendor} ${mobileModel}` : navigator.platform;
 
         // const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform + "&site=raj.Bar";
-        const url = 'https://maker.ifttt.com/trigger/site_visited/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + ipv4 + "&value2=" + platform + "&value3=Strava";
+        const url = 'https://maker.ifttt.com/trigger/site_visited/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + ipv4 + "&value2=" + platform + "&value3=raj.Bar";
         if (!this.state.alerted) {
             fetch(url, {
                 method: 'post'
