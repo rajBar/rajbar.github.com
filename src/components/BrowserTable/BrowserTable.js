@@ -82,11 +82,11 @@ class BrowserTable extends Component {
                             {/*        Blog*/}
                             {/*    </p>*/}
                             {/*</a>*/}
-                            <a href="https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022" target="_blank"
+                            <a href="https://raj.bar/donate" target="_blank"
                                className="header-text">
                                 <img
                                     className={this.props.selected === "justgiving" ? "link-button-selected" : "link-button"}
-                                    onMouseEnter={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022")}
+                                    onMouseEnter={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://raj.bar/donate")}
                                     src={JustGiving}
                                     data-tip="JustGiving"
                                     data-for="ToolTipRight"

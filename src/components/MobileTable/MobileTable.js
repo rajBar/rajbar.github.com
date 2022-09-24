@@ -65,7 +65,7 @@ class MobileTable extends Component {
                         <td className="table-left">
                             <img
                                 className={this.props.selected === "justgiving" ? "link-button-selected" : "link-button"}
-                                onClick={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022")}
+                                onClick={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://raj.bar/donate")}
                                 src={JustGiving}
                                 data-tip="JustGiving"
                                 data-for="ToolTipLeft"
