@@ -6,6 +6,7 @@ import LinkedIn from '../../icons/LinkedIn.png';
 import Instagram from '../../icons/Instagram.png';
 import Strava from '../../icons/Strava.png';
 import Email from '../../icons/Email.png';
+import JustGiving from '../../icons/JustGiving.png';
 
 
 class BrowserTable extends Component {
@@ -75,11 +76,21 @@ class BrowserTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <a href="https://rajbar.github.io/movies/" target="_blank" className="header-text">
-                                <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                                   onMouseEnter={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
-                                    Movie List
-                                </p>
+                            {/*<a href="https://rajbar.github.io/blogs/" target="_blank" className="header-text">*/}
+                            {/*    <p className={this.props.selected === "blogs" ? "link-button-selected" : "link-button"}*/}
+                            {/*       onMouseEnter={() => this.props.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>*/}
+                            {/*        Blog*/}
+                            {/*    </p>*/}
+                            {/*</a>*/}
+                            <a href="https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022" target="_blank"
+                               className="header-text">
+                                <img
+                                    className={this.props.selected === "justgiving" ? "link-button-selected" : "link-button"}
+                                    onMouseEnter={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022")}
+                                    src={JustGiving}
+                                    data-tip="JustGiving"
+                                    data-for="ToolTipRight"
+                                /><br/>
                             </a>
                         </td>
                         <td className="table-right">
@@ -96,10 +107,10 @@ class BrowserTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <a href="https://rajbar.github.io/blogs/" target="_blank" className="header-text">
-                                <p className={this.props.selected === "blogs" ? "link-button-selected" : "link-button"}
-                                   onMouseEnter={() => this.props.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>
-                                    Blog
+                            <a href="https://rajbar.github.io/movies/" target="_blank" className="header-text">
+                                <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
+                                   onMouseEnter={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                                    Movie List
                                 </p>
                             </a>
                         </td>

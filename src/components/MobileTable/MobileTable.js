@@ -6,6 +6,7 @@ import LinkedIn from '../../icons/LinkedIn.png';
 import Instagram from '../../icons/Instagram.png';
 import Strava from '../../icons/Strava.png';
 import Email from '../../icons/Email.png';
+import JustGiving from '../../icons/JustGiving.png';
 
 
 class MobileTable extends Component {
@@ -62,10 +63,13 @@ class MobileTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                               onClick={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
-                                Movie List
-                            </p>
+                            <img
+                                className={this.props.selected === "justgiving" ? "link-button-selected" : "link-button"}
+                                onClick={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://www.justgiving.com/fundraising/raj-bariah-mk-half-2022")}
+                                src={JustGiving}
+                                data-tip="JustGiving"
+                                data-for="ToolTipLeft"
+                            /><br/>
                         </td>
                         <td className="table-right">
                             <img className={this.props.selected === "strava" ? "link-button-selected" : "link-button"}
@@ -78,9 +82,9 @@ class MobileTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <p className={this.props.selected === "blogs" ? "link-button-selected" : "link-button"}
-                               onClick={() => this.props.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>
-                                Blog
+                            <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
+                               onClick={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                                Movie List
                             </p>
                         </td>
                         <td className="table-right">
