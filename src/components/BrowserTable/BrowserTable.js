@@ -86,10 +86,10 @@ class BrowserTable extends Component {
                                className="header-text">
                                 <img
                                     className={this.props.selected === "justgiving" ? "link-button-selected" : "link-button"}
-                                    onMouseEnter={() => this.props.changeText("justgiving", "", "R", "‎‎‎ ‎", "iah", "https://raj.bar/donate")}
+                                    onMouseEnter={() => this.props.changeText("justgiving", "", "r", ".", "/donate", "https://raj.bar/donate")}
                                     src={JustGiving}
                                     data-tip="JustGiving"
-                                    data-for="ToolTipRight"
+                                    data-for="ToolTipLeft"
                                 /><br/>
                             </a>
                         </td>
