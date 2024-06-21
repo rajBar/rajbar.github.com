@@ -83,13 +83,13 @@ class MobileTable extends Component {
                     <tr>
                         <td className="table-left">
                             <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                               onClick={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                               onClick={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://raj.bar/movies/")}>
                                 Movie List
                             </p>
                         </td>
                         <td className="table-right">
                             <p className={this.props.selected === "strava-stats" ? "link-button-selected" : "link-button"}
-                               onClick={() => this.props.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>
+                               onClick={() => this.props.changeText("strava-stats", "", "r", ".", "/strava", "https://raj.bar/strava/")}>
                                 Strava Stats
                             </p>
                         </td>

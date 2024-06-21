@@ -76,9 +76,9 @@ class BrowserTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            {/*<a href="https://rajbar.github.io/blogs/" target="_blank" className="header-text">*/}
+                            {/*<a href="https://raj.bar/blogs/" target="_blank" className="header-text">*/}
                             {/*    <p className={this.props.selected === "blogs" ? "link-button-selected" : "link-button"}*/}
-                            {/*       onMouseEnter={() => this.props.changeText("blogs", "", "r", ".", "/blogs", "https://rajbar.github.io/blogs/")}>*/}
+                            {/*       onMouseEnter={() => this.props.changeText("blogs", "", "r", ".", "/blogs", "https://raj.bar/blogs/")}>*/}
                             {/*        Blog*/}
                             {/*    </p>*/}
                             {/*</a>*/}
@@ -107,17 +107,17 @@ class BrowserTable extends Component {
                     </tr>
                     <tr>
                         <td className="table-left">
-                            <a href="https://rajbar.github.io/movies/" target="_blank" className="header-text">
+                            <a href="https://raj.bar/movies/" target="_blank" className="header-text">
                                 <p className={this.props.selected === "movie-list" ? "link-button-selected" : "link-button"}
-                                   onMouseEnter={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://rajbar.github.io/movies/")}>
+                                   onMouseEnter={() => this.props.changeText("movie-list", "", "r", ".", "/movies", "https://raj.bar/movies/")}>
                                     Movie List
                                 </p>
                             </a>
                         </td>
                         <td className="table-right">
-                            <a href="https://rajbar.github.io/strava/" target="_blank" className="header-text">
+                            <a href="https://raj.bar/strava/" target="_blank" className="header-text">
                                 <p className={this.props.selected === "strava-stats" ? "link-button-selected" : "link-button"}
-                                   onMouseEnter={() => this.props.changeText("strava-stats", "", "r", ".", "/strava", "https://rajbar.github.io/strava/")}>
+                                   onMouseEnter={() => this.props.changeText("strava-stats", "", "r", ".", "/strava", "https://raj.bar/strava/")}>
                                     Strava Stats
                                 </p>
                             </a>
