@@ -1,158 +1,125 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import TextTransition, { presets } from "react-text-transition";
+import { isMobile, mobileVendor, mobileModel } from "react-device-detect";
+import { publicIpv4 } from 'public-ip';
+import LinksGrid from "../LinksGrid/LinksGrid";
+import MobileScroller from "../MobileScroller/MobileScroller";
+import { LINKS } from "../../constants/links";
 import './Home-style.css';
-import TextTransition, {presets} from "react-text-transition";
-import {BrowserView, MobileView, isMobile, mobileVendor, mobileModel} from "react-device-detect";
-import {publicIpv4} from 'public-ip';
-import BrowserTable from "../BrowserTable/BrowserTable";
-import MobileTable from "../MobileTable/MobileTable";
 
+const Home = () => {
+    const [state, setState] = useState({
+        selected: "raj.Bar",
+        r: "r",
+        prefix: "",
+        suffix: "",
+        middle: ".",
+        link: "",
+        alerted: false,
+        numberOfSelections: 0,
+    });
 
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selected: "raj.Bar",
-            r: "r",
-            prefix: "",
-            suffix: "",
-            middle: ".",
-            link: "",
-            alerted: false,
-            numberOfSelections: 0,
+    const notifyPhone = useCallback(async () => {
+        try {
+            const ipv4 = await publicIpv4();
+            const platform = isMobile ? `${mobileVendor} ${mobileModel}` : navigator.platform;
+            const url = `https://maker.ifttt.com/trigger/site_visited/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=${ipv4}&value2=${platform}&value3=raj.Bar`;
+            
+            if (!state.alerted) {
+                fetch(url, { method: 'post' }).catch(e => console.log(e));
+                setState(prev => ({ ...prev, alerted: true }));
+            }
+        } catch (e) {
+            console.error("Failed to notify:", e);
         }
-    }
+    }, [state.alerted]);
 
-    async notifyPhone() {
-        const ipv4 = await publicIpv4();
-        const platform = isMobile ? `${mobileVendor} ${mobileModel}` : navigator.platform;
+    useEffect(() => {
+        notifyPhone();
+    }, [notifyPhone]);
 
-        // const url = 'https://raj.bariah.com:2010/location?ipAddress=' + ipv4 + "&device=" + navigator.platform + "&site=raj.Bar";
-        const url = 'https://maker.ifttt.com/trigger/site_visited/with/key/b_Yu8_AU_JIDYDYR_WXF5-?value1=' + ipv4 + "&value2=" + platform + "&value3=raj.Bar";
-        if (!this.state.alerted) {
-            fetch(url, {
-                method: 'post'
-            }).catch(e => console.log(e));
-            this.setState({
-                ...this.state,
-                alerted: true,
-            });
-        }
-    }
+    const changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
+        let { numberOfSelections } = state;
+        numberOfSelections += 1;
 
-    removeAlert() {
-        this.setState({
-            ...this.state,
-            numberOfSelections: 6,
-        });
-    }
-
-    changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
-        let { numberOfSelections } = this.state;
-        numberOfSelections+=1;
-
+        let finalLink = link;
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent) && buttonSelected === "linkedin") {
-            link = "linkedin://profile/gulrajbariah";
+            finalLink = "linkedin://profile/gulrajbariah";
         }
 
-        if (numberOfSelections === 4 && isMobile) {
-            alert("After the icon is selected, select the link above");
-        }
-
-        this.setState({
-            ...this.state,
+        setState(prev => ({
+            ...prev,
             selected: buttonSelected,
-            r: r,
-            prefix: prefix,
-            suffix: suffix,
-            middle: middle,
-            link: link,
+            r,
+            prefix,
+            suffix,
+            middle,
+            link: finalLink,
             numberOfSelections,
-        });
+        }));
     };
 
-    render() {
-        const prefix = this.state.prefix;
-        const suffix = this.state.suffix;
-        const middle = this.state.middle;
-        const r = this.state.r;
-        const link = this.state.link;
+    const resetSelection = () => {
+        setState(prev => ({
+            ...prev,
+            selected: "raj.Bar",
+            prefix: "",
+            r: "r",
+            middle: ".",
+            suffix: "",
+            link: ""
+        }));
+    };
 
-        this.notifyPhone();
+    const handleMobileScrollChange = (link) => {
+        changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link);
+    };
 
-        return (
-            <div style={{marginTop: "50px"}}>
-                <a onClick={() => this.removeAlert()} href={link} target="_blank" className="header-text">
-                    <section className={isMobile ? "raj-bar-mobile" : "raj-bar"}>
-                        <TextTransition
-                            text={prefix}
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            className="other-text"
-                        />
-                        <TextTransition
-                            text={r}
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            className="main-text"
-                        />
-                        <TextTransition
-                            text="aj"
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            className="main-text"
-                        />
-                        <TextTransition
-                            text={middle}
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            delay={100}
-                            className="other-text"
-                        />
-                        <TextTransition
-                            text="Bar"
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            className="main-text"
-                        />
-                        <TextTransition
-                            text={suffix}
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            delay={200}
-                            className="other-text"
-                        />
-                    </section>
-                </a>
-                <MobileView>
-                    <div
-                        className={this.state.selected === "raj.Bar" ? "info-text" : "info-text-select"}
-                        onClick={() => this.changeText("raj.Bar", "", "r", ".", "", "")}
-                    >
-                        <TextTransition
-                            text={this.state.selected === "raj.Bar" ? "↓ Select below ↓" : "↑ Link above ↑"}
-                            springConfig={presets.wobbly}
-                            inline
-                            overflow
-                            delay={200}
-                            className="other-text"
-                        />
+    const { prefix, suffix, middle, r, link, selected } = state;
+
+    return (
+        <main className={`home-container ${isMobile ? 'mobile-view' : 'desktop-view'}`}>
+            <header className="hero-section">
+                <a 
+                    href={link || "#"} 
+                    target={link ? "_blank" : "_self"} 
+                    rel="noopener noreferrer"
+                    className={`dynamic-header ${!link ? 'no-link' : ''}`}
+                    onClick={(e) => !link && e.preventDefault()}
+                >
+                    <div className="raj-bar-display">
+                        <TextTransition text={prefix} springConfig={presets.wobbly} inline className="text-secondary" />
+                        <TextTransition text={r} springConfig={presets.wobbly} inline className="text-main" />
+                        <TextTransition text="aj" springConfig={presets.wobbly} inline className="text-main" />
+                        <TextTransition text={middle} springConfig={presets.wobbly} inline className="text-secondary" />
+                        <TextTransition text="Bar" springConfig={presets.wobbly} inline className="text-main" />
+                        <TextTransition text={suffix} springConfig={presets.wobbly} inline className="text-secondary" />
                     </div>
-                </MobileView>
-                <BrowserView>
-                    <BrowserTable changeText={this.changeText} selected={this.state.selected} />
-                </BrowserView>
-                <MobileView>
-                    <MobileTable changeText={this.changeText} selected={this.state.selected} />
-                </MobileView>
-            </div>
-        )
-    }
-}
+                </a>
+                
+                <div className="spacer" style={{ height: '24px' }} />
+            </header>
+
+            <section className="links-section">
+                {isMobile ? (
+                    <MobileScroller 
+                        links={LINKS} 
+                        selectedId={selected} 
+                        onScrollChange={handleMobileScrollChange} 
+                    />
+                ) : (
+                    <>
+                        <LinksGrid changeText={changeText} selected={selected} />
+                        {selected !== "raj.Bar" && (
+                            <button className="reset-button" onClick={resetSelection}>
+                                Reset View
+                            </button>
+                        )}
+                    </>
+                )}
+            </section>
+        </main>
+    );
+};
 
 export default Home;
