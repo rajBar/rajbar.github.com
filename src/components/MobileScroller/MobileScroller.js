@@ -77,7 +77,14 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
                             className={`large-link-card ${selectedId === link.id ? 'focused' : 'dimmed'}`}
                         >
                             {link.isText ? (
-                                <div className="large-text-label">{link.label}</div>
+                                <>
+                                    <img 
+                                        src={link.icon} 
+                                        alt={link.label} 
+                                        className={`large-icon ${link.isInvertible ? 'invertible' : ''}`} 
+                                    />
+                                    <div className="large-text-label-sub">{link.label}</div>
+                                </>
                             ) : (
                                 <img 
                                     src={link.icon} 
