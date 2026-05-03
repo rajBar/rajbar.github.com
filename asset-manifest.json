@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e76f58b.css",
-    "main.js": "/static/js/main.e8b64963.js",
+    "main.css": "/static/css/main.56371564.css",
+    "main.js": "/static/js/main.7a7bc717.js",
     "static/media/Instagram.png": "/static/media/Instagram.734a95643ee0100baeca.png",
     "static/media/Running.png": "/static/media/Running.9262171aa25e07ff1975.png",
     "static/media/JustGiving.png": "/static/media/JustGiving.ce5d31a2588f30f83260.png",
     "static/media/Strava.png": "/static/media/Strava.244b6df8c727b2ed94d5.png",
     "index.html": "/index.html",
     "static/media/Movie.svg": "/static/media/Movie.0e20e9db77ea15ee25b29d0d29c71a75.svg",
-    "main.3e76f58b.css.map": "/static/css/main.3e76f58b.css.map",
-    "main.e8b64963.js.map": "/static/js/main.e8b64963.js.map"
+    "main.56371564.css.map": "/static/css/main.56371564.css.map",
+    "main.7a7bc717.js.map": "/static/js/main.7a7bc717.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e76f58b.css",
-    "static/js/main.e8b64963.js"
+    "static/css/main.56371564.css",
+    "static/js/main.7a7bc717.js"
   ]
 }
