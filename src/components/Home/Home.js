@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import TextTransition, { presets } from "react-text-transition";
 import { isMobile, mobileVendor, mobileModel } from "react-device-detect";
 import { publicIpv4 } from 'public-ip';
@@ -9,6 +9,10 @@ import './Home-style.css';
 
 const Home = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+    const [isTouching, setIsTouching] = useState(false);
+    const [isResetting, setIsResetting] = useState(false);
+    const resetTimeoutRef = useRef(null);
+    
     const [state, setState] = useState({
         selected: "raj.Bar",
         r: "r",
@@ -49,6 +53,11 @@ const Home = () => {
     };
 
     const changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
+        if (resetTimeoutRef.current) {
+            clearTimeout(resetTimeoutRef.current);
+            setIsResetting(false);
+        }
+
         let { numberOfSelections } = state;
         numberOfSelections += 1;
 
@@ -70,6 +79,9 @@ const Home = () => {
     };
 
     const resetSelection = () => {
+        if (state.selected === "raj.Bar") return;
+
+        setIsResetting(true);
         setState(prev => ({
             ...prev,
             selected: "raj.Bar",
@@ -79,24 +91,34 @@ const Home = () => {
             suffix: "",
             link: ""
         }));
+
+        if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
+        resetTimeoutRef.current = setTimeout(() => {
+            setIsResetting(false);
+        }, 850);
     };
 
-    const handleMobileScrollChange = (link) => {
-        if (!link) {
+    const handleMobileScrollChange = (link, progress) => {
+        if (!link && (!progress || progress === 0)) {
             resetSelection();
-        } else {
+        } else if (link) {
             changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link);
+        } else if (progress > 0 && state.selected !== "raj.Bar") {
+            if (isResetting) {
+                setIsResetting(false);
+                if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
+            }
         }
     };
 
     const { prefix, suffix, middle, r, link, selected } = state;
 
     return (
-        <main className={`home-container ${isMobile ? 'mobile-view' : 'desktop-view'}`}>
+        <main className={`home-container ${isMobile ? 'mobile-view' : 'desktop-view'} ${isTouching ? 'is-touching' : ''}`}>
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Dark Mode">
                 {theme === 'light' ? '🌙' : '☀️'}
             </button>
-            <header className={`hero-section ${isMobile ? (selected === "raj.Bar" ? 'mobile-centered' : 'mobile-top') : ''}`}>
+            <header className={`hero-section ${isMobile ? (selected === "raj.Bar" ? 'mobile-centered' : 'mobile-top') : ''} ${isResetting ? 'is-resetting' : ''}`}>
                 <a 
                     href={link || "#"} 
                     target={link ? "_blank" : "_self"} 
@@ -123,15 +145,18 @@ const Home = () => {
                         links={LINKS} 
                         selectedId={selected} 
                         onScrollChange={handleMobileScrollChange} 
+                        setIsTouching={setIsTouching}
                     />
                 ) : (
                     <>
                         <LinksGrid changeText={changeText} selected={selected} />
-                        {selected !== "raj.Bar" && (
-                            <button className="reset-button" onClick={resetSelection}>
-                                Reset View
-                            </button>
-                        )}
+                        <div className="reset-container">
+                            {selected !== "raj.Bar" && (
+                                <button className="reset-button" onClick={resetSelection}>
+                                    Reset View
+                                </button>
+                            )}
+                        </div>
                     </>
                 )}
             </section>

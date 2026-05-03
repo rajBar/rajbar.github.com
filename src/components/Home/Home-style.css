@@ -90,8 +90,14 @@
     align-items: center;
 }
 
+.reset-container {
+    height: 60px; /* Reserves space for the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .reset-button {
-    margin-top: 20px;
     padding: 8px 16px;
     border: 1px solid var(--border-color);
     background: transparent;
@@ -122,25 +128,28 @@
     margin: 0;
     z-index: 20;
     pointer-events: none;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    top: 0;
+    
+    /* GPU-accelerated interpolation */
+    --center-y: calc(50vh - 60px);
+    --distance: calc(var(--center-y) - 40px);
+    transform: translate3d(0, calc(var(--center-y) - var(--distance) * var(--header-glide, 0)), 0);
+    
+    /* NO default transition - this allows 1:1 scroll tracking */
+    transition: none;
+}
+
+.home-container.mobile-view .hero-section.is-resetting {
+    /* ONLY transition when explicitly returning to center state */
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .home-container.mobile-view .hero-section a {
     pointer-events: auto;
 }
 
-.home-container.mobile-view .hero-section.mobile-centered {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .home-container.mobile-view .hero-section.mobile-centered a {
     pointer-events: none;
-}
-
-.home-container.mobile-view .hero-section.mobile-top {
-    top: 40px;
-    transform: translateY(0);
 }
 
 .home-container.mobile-view .hero-section.mobile-top a {

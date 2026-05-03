@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './MobileScroller.css';
 
-const MobileScroller = ({ links, selectedId, onScrollChange }) => {
+const MobileScroller = ({ links, selectedId, onScrollChange, setIsTouching }) => {
     const scrollerRef = useRef(null);
 
     const handleScroll = () => {
@@ -11,18 +11,29 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
         const scrollPosition = scroller.scrollTop;
         const itemHeight = scroller.clientHeight * 0.6;
         
-        // If at the very top (or close to it), reset to raj.Bar
-        if (scrollPosition < itemHeight / 2) {
+        // Calculate glide progress (0 to 1) for the first itemHeight
+        const glideProgress = Math.min(scrollPosition / (itemHeight * 0.9), 1);
+        const container = scroller.closest('.home-container');
+        if (container) {
+            requestAnimationFrame(() => {
+                container.style.setProperty('--header-glide', glideProgress);
+            });
+        }
+
+        // If at the very top, reset to raj.Bar
+        if (scrollPosition < 10) {
             if (selectedId !== "raj.Bar") {
-                onScrollChange(null); // Signal reset
+                onScrollChange(null, 0); 
             }
             return;
         }
 
-        // Adjust index because of the spacer at the top
+        // Trigger wordplay change earlier to match the glide
         const index = Math.round(scrollPosition / itemHeight) - 1;
         if (links[index] && links[index].id !== selectedId) {
-            onScrollChange(links[index]);
+            onScrollChange(links[index], glideProgress);
+        } else if (index < 0 && selectedId !== "raj.Bar") {
+            onScrollChange(null, glideProgress);
         }
     };
 
@@ -64,6 +75,9 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
                 className="main-scroller" 
                 ref={scrollerRef}
                 onScroll={handleScroll}
+                onTouchStart={() => setIsTouching(true)}
+                onTouchEnd={() => setIsTouching(false)}
+                onTouchCancel={() => setIsTouching(false)}
             >
                 {/* Initial Spacer for raj.Bar state */}
                 <div className="scroller-item top-spacer"></div>
