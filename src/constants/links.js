@@ -25,6 +25,7 @@ export const LINKS = [
         icon: Email,
         label: 'E-mail',
         url: 'mailto:me@raj.bar',
+        isInvertible: true,
         data: { prefix: "me@", r: "r", middle: ".", suffix: "", link: "mailto:me@raj.bar" }
     },
     {

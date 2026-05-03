@@ -1,8 +1,8 @@
 .mobile-scroller-container {
     display: flex;
     width: 100vw;
-    height: 60vh;
-    margin-top: 20px;
+    height: 50vh; /* Reduced height to ensure no overlap with top header */
+    margin-top: 0;
     overflow: hidden;
     position: relative;
 }
@@ -20,12 +20,13 @@
     justify-content: center;
     gap: 12px;
     padding: 15px 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--rail-bg);
     backdrop-filter: blur(8px);
     border-radius: 22px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: background var(--transition-speed), border var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .rail-dot {
@@ -44,14 +45,18 @@
 .rail-dot.active {
     opacity: 1;
     transform: scale(1.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px var(--card-shadow);
+    border: 1px solid var(--border-color);
 }
 
 .rail-icon {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+[data-theme='dark'] .rail-icon.invertible {
+    filter: invert(1);
 }
 
 .rail-text-dot {
@@ -72,7 +77,7 @@
 }
 
 .scroller-item {
-    height: 60%; /* Each item takes 60% of container height */
+    height: 60%; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -80,10 +85,14 @@
     scroll-snap-align: center;
 }
 
+.scroller-item.top-spacer {
+    height: 60%;
+}
+
 .large-link-card {
     width: 70%;
     aspect-ratio: 1;
-    background: white;
+    background: var(--card-bg);
     border-radius: 32px;
     display: flex;
     flex-direction: column;
@@ -91,9 +100,21 @@
     justify-content: center;
     text-decoration: none;
     color: var(--text-main);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.large-link-card.dimmed {
+    filter: grayscale(1) opacity(0.3); /* Slightly more dimmed */
+    transform: scale(0.85);
+}
+
+.large-link-card.focused {
+    filter: grayscale(0) opacity(1);
+    transform: scale(1);
+    box-shadow: 0 15px 40px var(--card-shadow);
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .large-icon {
@@ -101,6 +122,10 @@
     height: 50%;
     object-fit: contain;
     margin-bottom: 15px;
+}
+
+[data-theme='dark'] .large-icon.invertible {
+    filter: invert(1);
 }
 
 .large-text-label {

@@ -20,7 +20,11 @@ const LinksGrid = ({ changeText, selected }) => {
                         {link.isText ? (
                             <span className="link-text-label">{link.label}</span>
                         ) : (
-                            <img src={link.icon} alt={link.label} className="link-icon" />
+                            <img 
+                                src={link.icon} 
+                                alt={link.label} 
+                                className={`link-icon ${link.isInvertible ? 'invertible' : ''}`} 
+                            />
                         )}
                     </div>
                 </a>

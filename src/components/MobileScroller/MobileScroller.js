@@ -9,9 +9,18 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
         
         const scroller = scrollerRef.current;
         const scrollPosition = scroller.scrollTop;
-        const itemHeight = scroller.clientHeight * 0.6; // Matches item height in CSS
+        const itemHeight = scroller.clientHeight * 0.6;
         
-        const index = Math.round(scrollPosition / itemHeight);
+        // If at the very top (or close to it), reset to raj.Bar
+        if (scrollPosition < itemHeight / 2) {
+            if (selectedId !== "raj.Bar") {
+                onScrollChange(null); // Signal reset
+            }
+            return;
+        }
+
+        // Adjust index because of the spacer at the top
+        const index = Math.round(scrollPosition / itemHeight) - 1;
         if (links[index] && links[index].id !== selectedId) {
             onScrollChange(links[index]);
         }
@@ -20,8 +29,9 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
     const scrollToItem = (index) => {
         if (!scrollerRef.current) return;
         const itemHeight = scrollerRef.current.clientHeight * 0.6;
+        // +1 to account for the top spacer
         scrollerRef.current.scrollTo({
-            top: index * itemHeight,
+            top: (index + 1) * itemHeight,
             behavior: 'smooth'
         });
     };
@@ -37,7 +47,11 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
                         onClick={() => scrollToItem(index)}
                     >
                         {link.icon ? (
-                            <img src={link.icon} alt="" className="rail-icon" />
+                            <img 
+                                src={link.icon} 
+                                alt="" 
+                                className={`rail-icon ${link.isInvertible ? 'invertible' : ''}`} 
+                            />
                         ) : (
                             <div className="rail-text-dot">{link.label[0]}</div>
                         )}
@@ -51,18 +65,25 @@ const MobileScroller = ({ links, selectedId, onScrollChange }) => {
                 ref={scrollerRef}
                 onScroll={handleScroll}
             >
+                {/* Initial Spacer for raj.Bar state */}
+                <div className="scroller-item top-spacer"></div>
+
                 {links.map((link) => (
                     <div key={`main-${link.id}`} className="scroller-item">
                         <a 
                             href={link.url} 
                             target={link.url.startsWith('mailto') ? '_self' : '_blank'}
                             rel="noopener noreferrer"
-                            className="large-link-card"
+                            className={`large-link-card ${selectedId === link.id ? 'focused' : 'dimmed'}`}
                         >
                             {link.isText ? (
                                 <div className="large-text-label">{link.label}</div>
                             ) : (
-                                <img src={link.icon} alt={link.label} className="large-icon" />
+                                <img 
+                                    src={link.icon} 
+                                    alt={link.label} 
+                                    className={`large-icon ${link.isInvertible ? 'invertible' : ''}`} 
+                                />
                             )}
                             <div className="visit-hint">Tap to Visit</div>
                         </a>

@@ -8,6 +8,7 @@ import { LINKS } from "../../constants/links";
 import './Home-style.css';
 
 const Home = () => {
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
     const [state, setState] = useState({
         selected: "raj.Bar",
         r: "r",
@@ -37,6 +38,15 @@ const Home = () => {
     useEffect(() => {
         notifyPhone();
     }, [notifyPhone]);
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
 
     const changeText = (buttonSelected, prefix, r, middle, suffix, link) => {
         let { numberOfSelections } = state;
@@ -72,14 +82,21 @@ const Home = () => {
     };
 
     const handleMobileScrollChange = (link) => {
-        changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link);
+        if (!link) {
+            resetSelection();
+        } else {
+            changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link);
+        }
     };
 
     const { prefix, suffix, middle, r, link, selected } = state;
 
     return (
         <main className={`home-container ${isMobile ? 'mobile-view' : 'desktop-view'}`}>
-            <header className="hero-section">
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Dark Mode">
+                {theme === 'light' ? '🌙' : '☀️'}
+            </button>
+            <header className={`hero-section ${isMobile ? (selected === "raj.Bar" ? 'mobile-centered' : 'mobile-top') : ''}`}>
                 <a 
                     href={link || "#"} 
                     target={link ? "_blank" : "_self"} 
