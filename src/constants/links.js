@@ -4,6 +4,8 @@ import Instagram from '../icons/Instagram.png';
 import Strava from '../icons/Strava.png';
 import Email from '../icons/Email.png';
 import JustGiving from '../icons/JustGiving.png';
+import Running from '../icons/Running.png';
+import Movie from '../icons/Movie.svg';
 
 export const LINKS = [
     {
@@ -52,14 +54,18 @@ export const LINKS = [
     {
         id: 'movie-list',
         label: 'Movie List',
+        icon: Movie,
         isText: true,
+        isInvertible: true,
         url: 'https://raj.bar/movies/',
         data: { prefix: "", r: "r", middle: ".", suffix: "/movies", link: "https://raj.bar/movies/" }
     },
     {
         id: 'strava-stats',
         label: 'Strava Stats',
+        icon: Running,
         isText: true,
+        isInvertible: true,
         url: 'https://raj.bar/strava/',
         data: { prefix: "", r: "r", middle: ".", suffix: "/strava", link: "https://raj.bar/strava/" }
     }
