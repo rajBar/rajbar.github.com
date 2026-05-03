@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.cfc74174.css",
+    "main.css": "/static/css/main.3e76f58b.css",
     "main.js": "/static/js/main.e8b64963.js",
     "static/media/Instagram.png": "/static/media/Instagram.734a95643ee0100baeca.png",
     "static/media/Running.png": "/static/media/Running.9262171aa25e07ff1975.png",
@@ -8,11 +8,11 @@
     "static/media/Strava.png": "/static/media/Strava.244b6df8c727b2ed94d5.png",
     "index.html": "/index.html",
     "static/media/Movie.svg": "/static/media/Movie.0e20e9db77ea15ee25b29d0d29c71a75.svg",
-    "main.cfc74174.css.map": "/static/css/main.cfc74174.css.map",
+    "main.3e76f58b.css.map": "/static/css/main.3e76f58b.css.map",
     "main.e8b64963.js.map": "/static/js/main.e8b64963.js.map"
   },
   "entrypoints": [
-    "static/css/main.cfc74174.css",
+    "static/css/main.3e76f58b.css",
     "static/js/main.e8b64963.js"
   ]
 }
