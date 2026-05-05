@@ -40,7 +40,9 @@ const Home = () => {
     }, [state.alerted]);
 
     useEffect(() => {
-        notifyPhone();
+        if (process.env.NODE_ENV === 'production') {
+            notifyPhone();
+        }
     }, [notifyPhone]);
 
     useEffect(() => {

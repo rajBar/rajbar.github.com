@@ -6,6 +6,7 @@ import Email from '../icons/Email.png';
 import JustGiving from '../icons/JustGiving.png';
 import Running from '../icons/Running.png';
 import Movie from '../icons/Movie.svg';
+import Api from '../icons/Api.png';
 
 const LINK_DATA = {
     github: {
@@ -68,6 +69,15 @@ const LINK_DATA = {
         isInvertible: true,
         url: 'https://raj.bar/strava/',
         data: { prefix: "", r: "r", middle: ".", suffix: "/strava", link: "https://raj.bar/strava/" }
+    },
+    'api': {
+        id: 'api',
+        label: 'API',
+        icon: Api,
+        isText: true,
+        isInvertible: true,
+        url: 'https://raj.bar/strava/',
+        data: { prefix: "api.", r: "r", middle: "", suffix: "iah.com", link: "https://api.rajbariah.com/" }
     }
 };
 
@@ -76,9 +86,9 @@ export const DESKTOP_LINKS = [
     LINK_DATA['github'],
     LINK_DATA['linkedin'],
     LINK_DATA['email'],
-    LINK_DATA['instagram'],
-    LINK_DATA['justgiving'],
     LINK_DATA['strava'],
+    LINK_DATA['api'],
+    LINK_DATA['instagram'],
     LINK_DATA['movie-list'],
     LINK_DATA['strava-stats'],
 ];
