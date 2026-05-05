@@ -12,7 +12,9 @@ const MobileScroller = ({ links, selectedId, onScrollChange, setIsTouching }) =>
         const itemHeight = scroller.clientHeight * 0.6;
         
         // Calculate glide progress (0 to 1) for the first itemHeight
-        const glideProgress = Math.min(scrollPosition / (itemHeight * 0.9), 1);
+        // The first icon is centered at scrollPosition = 0.4 * clientHeight
+        // We want it fully at the top by the time we hit that first icon.
+        const glideProgress = Math.min(scrollPosition / (scroller.clientHeight * 0.35), 1);
         const container = scroller.closest('.home-container');
         if (container) {
             requestAnimationFrame(() => {
@@ -39,10 +41,13 @@ const MobileScroller = ({ links, selectedId, onScrollChange, setIsTouching }) =>
 
     const scrollToItem = (index) => {
         if (!scrollerRef.current) return;
-        const itemHeight = scrollerRef.current.clientHeight * 0.6;
-        // +1 to account for the top spacer
+        const h = scrollerRef.current.clientHeight;
+        // The center of item (index+1) is at (index + 1) * 0.6H + 0.3H
+        // To center it, scrollPosition = center - 0.5H = (index + 1)*0.6H - 0.2H
+        const targetScroll = (index + 1) * (h * 0.6) - (h * 0.2);
+        
         scrollerRef.current.scrollTo({
-            top: (index + 1) * itemHeight,
+            top: targetScroll,
             behavior: 'smooth'
         });
     };
