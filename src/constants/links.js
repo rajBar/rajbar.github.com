@@ -76,7 +76,7 @@ const LINK_DATA = {
         icon: Api,
         isText: true,
         isInvertible: true,
-        url: 'https://raj.bar/strava/',
+        url: 'https://api.rajbariah.com/',
         data: { prefix: "api.", r: "r", middle: "", suffix: "iah.com", link: "https://api.rajbariah.com/" }
     }
 };
