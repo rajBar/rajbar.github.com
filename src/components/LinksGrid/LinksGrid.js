@@ -1,12 +1,11 @@
 import React from 'react';
 import { isMobile } from "react-device-detect";
-import { LINKS } from '../../constants/links';
 import './LinksGrid.css';
 
-const LinksGrid = ({ changeText, selected }) => {
+const LinksGrid = ({ links, changeText, selected }) => {
     return (
         <div className="links-grid">
-            {LINKS.map((link) => (
+            {links.map((link) => (
                 <a
                     key={link.id}
                     href={link.url}
@@ -16,9 +15,16 @@ const LinksGrid = ({ changeText, selected }) => {
                     onMouseEnter={() => !isMobile && changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link)}
                     onClick={() => changeText(link.id, link.data.prefix, link.data.r, link.data.middle, link.data.suffix, link.data.link)}
                 >
-                    <div className={`link-item ${selected === link.id ? 'selected' : ''}`}>
+                    <div className={`link-item ${selected === link.id ? 'selected' : ''} ${link.isText ? 'text-item' : ''}`}>
                         {link.isText ? (
-                            <span className="link-text-label">{link.label}</span>
+                            <>
+                                <img 
+                                    src={link.icon} 
+                                    alt={link.label} 
+                                    className={`link-icon ${link.isInvertible ? 'invertible' : ''}`} 
+                                />
+                                <span className="link-text-label">{link.label}</span>
+                            </>
                         ) : (
                             <img 
                                 src={link.icon} 

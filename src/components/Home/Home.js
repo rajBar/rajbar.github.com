@@ -4,7 +4,7 @@ import { isMobile, mobileVendor, mobileModel } from "react-device-detect";
 import { publicIpv4 } from 'public-ip';
 import LinksGrid from "../LinksGrid/LinksGrid";
 import MobileScroller from "../MobileScroller/MobileScroller";
-import { LINKS } from "../../constants/links";
+import { DESKTOP_LINKS, MOBILE_LINKS } from "../../constants/links";
 import './Home-style.css';
 
 const Home = () => {
@@ -142,14 +142,14 @@ const Home = () => {
             <section className="links-section">
                 {isMobile ? (
                     <MobileScroller 
-                        links={LINKS} 
+                        links={MOBILE_LINKS} 
                         selectedId={selected} 
                         onScrollChange={handleMobileScrollChange} 
                         setIsTouching={setIsTouching}
                     />
                 ) : (
                     <>
-                        <LinksGrid changeText={changeText} selected={selected} />
+                        <LinksGrid links={DESKTOP_LINKS} changeText={changeText} selected={selected} />
                         <div className="reset-container">
                             {selected !== "raj.Bar" && (
                                 <button className="reset-button" onClick={resetSelection}>
