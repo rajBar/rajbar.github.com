@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.56371564.css",
-    "main.js": "/static/js/main.7a7bc717.js",
+    "main.css": "/static/css/main.c5d6bb6a.css",
+    "main.js": "/static/js/main.7366b6c9.js",
     "static/media/Instagram.png": "/static/media/Instagram.734a95643ee0100baeca.png",
     "static/media/Running.png": "/static/media/Running.9262171aa25e07ff1975.png",
     "static/media/JustGiving.png": "/static/media/JustGiving.ce5d31a2588f30f83260.png",
     "static/media/Strava.png": "/static/media/Strava.244b6df8c727b2ed94d5.png",
     "index.html": "/index.html",
     "static/media/Movie.svg": "/static/media/Movie.0e20e9db77ea15ee25b29d0d29c71a75.svg",
-    "main.56371564.css.map": "/static/css/main.56371564.css.map",
-    "main.7a7bc717.js.map": "/static/js/main.7a7bc717.js.map"
+    "main.c5d6bb6a.css.map": "/static/css/main.c5d6bb6a.css.map",
+    "main.7366b6c9.js.map": "/static/js/main.7366b6c9.js.map"
   },
   "entrypoints": [
-    "static/css/main.56371564.css",
-    "static/js/main.7a7bc717.js"
+    "static/css/main.c5d6bb6a.css",
+    "static/js/main.7366b6c9.js"
   ]
 }
